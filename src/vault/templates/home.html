@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="page-header">
+        <h1>Home</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Users</h3>
+            <table class="table table-responsive table-hover">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Password</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for user in users %}
+                    <tr>
+                    <td>{{ user.username }}</td>
+                    <td>...</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-6">
+            <h3>Create User</h3>
+
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="username">New Username</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">New Password</label>
+                    <input type="text" class="form-control" id="password" name="password">
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label for="your_username">Your username</label>
+                    <input type="text" class="form-control" id="your_username" name="your_username">
+                </div>
+                <div class="form-group">
+                    <label for="your_password">Your password</label>
+                    <input type="text" class="form-control" id="your_password" name="your_password">
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">
+                        Create
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

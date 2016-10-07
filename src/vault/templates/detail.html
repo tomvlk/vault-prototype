@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>
+            Entry detail <small>{{ entry.name }}</small>
+        </h1>
+    </div>
+
+    <div class="well" id="add-form">
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <input type="hidden" name="entry" value="{{ entry.pk }}">
+
+            <div class="form-group">
+                <label for="entry_username">Entry Username</label>
+                <input type="text" disabled="disabled" class="form-control" id="entry_username" value="{{ entry.username }}">
+            </div>
+
+            <div class="form-group">
+                <label for="entry_password">Entry Password</label>
+                <input type="text" disabled="disabled" class="form-control" id="entry_password" value="{{ plain }}">
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label for="your_username">Your username</label>
+                <input type="text" class="form-control" id="your_username" name="your_username">
+            </div>
+            <div class="form-group">
+                <label for="your_password">Your password</label>
+                <input type="text" class="form-control" id="your_password" name="your_password">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    Decrypt
+                </button>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+Django==1.8.15
+django-extensions==1.7.4
+pkg-resources==0.0.0
+pycrypto==2.6.1
+pysha3==0.3
+salsa20==0.3.0
+scrypt==0.8.0
+six==1.10.0
+TripleSec==0.4
+twofish==0.3.0
+urllib3==1.18
+Werkzeug==0.11.11

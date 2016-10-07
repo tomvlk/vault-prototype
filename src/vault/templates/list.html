@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="page-header">
+        <a href="#add-form" class="btn btn-primary btn-lg pull-right" data-toggle="collapse">
+            Add
+        </a>
+        <h1>
+            List
+        </h1>
+    </div>
+
+    <div class="collapse well" id="add-form">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Entry Name</label>
+                <input type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Entry Username</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Entry Password</label>
+                <input type="text" class="form-control" id="password" name="password">
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <label for="your_username">Your username</label>
+                <input type="text" class="form-control" id="your_username" name="your_username">
+            </div>
+            <div class="form-group">
+                <label for="your_password">Your password</label>
+                <input type="text" class="form-control" id="your_password" name="your_password">
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <table class="table table-responsive table-condensed">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Username</th>
+        <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    {% for entry in list %}
+        <tr>
+
+        <td>{{ entry.pk }}</td>
+        <td>{{ entry.name }}</td>
+        <td>{{ entry.username }}</td>
+        <td>
+            <a href="/list/{{ entry.pk }}" class="btn btn-info btn-sm">
+                Decrypt
+            </a>
+        </td>
+
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+{% endblock %}
