@@ -9,4 +9,4 @@ six==1.10.0
 TripleSec==0.4
 twofish==0.3.0
 urllib3==1.18
-Werkzeug==0.11.11
+Werkzeug==0.15.3
